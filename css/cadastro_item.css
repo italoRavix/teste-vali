@@ -18,13 +18,14 @@
     max-width: 35%;
 }
 
-#linha-divisoria-crude{
+#linha-divisoria{
     border-top: 2px solid #1f286c;
     margin: 10% 0 
 }
 
 #form-editar-cadastro-item button,
-#form-cadastrar-novo-item button {
+#form-cadastrar-novo-item button,
+#form-listar-itens button {
     background-color: #1f286c;
     color:#ffffff;
     cursor: pointer;
@@ -38,6 +39,7 @@
 
 #form-editar-cadastro-item button,
 #form-cadastrar-novo-item button,
+#form-listar-itens button,
 #form-editar-cadastro-item input {
     border: 3px solid #1f286c;
     border-radius: 20px;
