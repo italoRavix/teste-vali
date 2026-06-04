@@ -1,0 +1,12 @@
+#main-sobre-nos > *{
+    margin-top: 20px;
+}
+
+#secao-sobre-nos h1{
+    margin-bottom: 20px;
+}
+
+#elementos-sobre-nos{
+    display: flex;
+    justify-content: center;
+}

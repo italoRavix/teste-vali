@@ -1,3 +1,9 @@
+#main-tela-cadastro
+{
+    padding-top: 50px;
+    min-height: 100vh;
+}
+
 #container-cadastro-item{
     display: flex;
     justify-content: center;
@@ -15,7 +21,8 @@
 
 #secao-contatos-ponto-turistico,
 #secao-endereco-ponto-turistico,
-#secao-horario-ponto-turistico{
+#secao-horario-ponto-turistico,
+#secao-senha-usuario{
     display: flex;
     flex-direction: column;
 }
@@ -48,16 +55,13 @@
     background-color: #1f286c;
     color: #ffffff;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 #form-cadastrar-item label{
     margin-top: 20px;
     padding-left: 15px;
-}
-
-#form-cadastrar-item button{
-    margin-top: 30px;
 }
 
 #cadastrar-imagens-ponto-turistico{
