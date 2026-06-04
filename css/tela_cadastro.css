@@ -1,0 +1,64 @@
+#container-cadastro-item{
+    display: flex;
+    justify-content: center;
+}
+
+#secao-cadastro-item{
+    font-size: 1.2rem;
+    width: 60%;
+}
+
+#form-cadastrar-item{
+    display: flex;
+    flex-direction: column;
+}
+
+#secao-contatos-ponto-turistico,
+#secao-endereco-ponto-turistico,
+#secao-horario-ponto-turistico{
+    display: flex;
+    flex-direction: column;
+}
+
+#form-cadastrar-item input,
+#form-cadastrar-item select,
+#form-cadastrar-item textarea,
+#form-cadastrar-item button{
+    border: 3px solid #1f286c;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 6px;
+}
+
+#form-cadastrar-item input,
+#form-cadastrar-item select,
+#form-cadastrar-item textarea{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#form-cadastrar-item button{
+    background-color: #1f286c;
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#form-cadastrar-item label{
+    margin-top: 20px;
+}
+
+#form-cadastrar-item button{
+    margin-top: 30px;
+}
+
+#cadastrar-ponto-turistico-24-horas{
+    width: auto;
+    margin-top: 10px;
+}
+
+#cadastrar-imagens-ponto-turistico{
+    border: none;
+    padding: 0;
+}
