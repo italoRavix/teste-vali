@@ -51,7 +51,7 @@
                 </li>
 
                 <li class="menu-item">
-                    <a href="index.html" class="menu-link">Home</a>
+                    <a href="home.html" class="menu-link">Home</a>
                 </li>
 
                 <li class="menu-item">
@@ -59,7 +59,7 @@
                 </li>
 
                 <li class="menu-item">
-                    <a href="sobre.html" class="menu-link">Sobre nós</a>
+                    <a href="sobre_nos.html" class="menu-link">Sobre nós</a>
                 </li>
 
                 <li class="menu-item">
@@ -130,19 +130,14 @@
         <section class="secao-locais">
             <div class="conteudo-secao">
 
-                <!-- Os locais serão inseridos aqui pelo JavaScript -->
                 <div id="locais-container" class="locais-container"></div>
 
-                <!-- Template reutilizável -->
                 <template id="template-local-card">
-
                     <article class="local-card">
 
-                        <h2 class="local-nome">
-                            Nome do local
-                        </h2>
+                        <h2 class="local-nome">Nome do local</h2>
 
-                        <div class="local-carrossel">
+                        <div class="carrossel-area">
 
                             <button
                                 class="carrossel-botao carrossel-botao-anterior"
@@ -152,14 +147,14 @@
                                 &#10094;
                             </button>
 
-                            <div class="carrossel-imagem-container">
-
-                                <img
-                                    src="assets/img/placeholder-local.jpg"
-                                    alt="Imagem do local"
-                                    class="carrossel-imagem"
-                                >
-
+                            <div class="local-carrossel">
+                                <div class="carrossel-imagem-container">
+                                    <img
+                                        src="assets/img/placeholder-local.jpg"
+                                        alt="Imagem do local"
+                                        class="carrossel-imagem"
+                                    >
+                                </div>
                             </div>
 
                             <button
@@ -173,9 +168,7 @@
                         </div>
 
                         <div class="carrossel-indicadores">
-
                             <span class="indicador ativo"></span>
-
                         </div>
 
                         <p class="local-descricao">
@@ -187,7 +180,6 @@
                         </p>
 
                     </article>
-
                 </template>
 
             </div>

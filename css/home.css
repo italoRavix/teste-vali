@@ -16,6 +16,7 @@
   --color-black: #000000;
   --color-brand-blue: #0d0166;
   --color-brand-red: #a30000;
+  --color-brand-gray: #dad9d9;
 
   --font-size-small: 0.9rem;
   --font-size-normal: 1rem;
@@ -29,7 +30,7 @@
   --font-medium: 500;
   --font-semibold: 600;
   --font-bold: 700;
-  --font-extrabold: 800;
+  --font-extrabold: 900;
 
   --border-radius-thin: 3px;
   --border-radius-small: 8px;
@@ -151,17 +152,18 @@ img {
 }
 
 .hero-titulo {
-  font-family: "Oi", serif;
+  font-family: "Poppins";
   font-size: var(--font-size-hero-title);
+  font-weight: var(--font-extrabold);
   color: var(--color-brand-blue);
 }
 
 .hero-descricao {
-  max-width: 520px;
+  max-width: 540px;
   margin: 20px 0 40px;
   color: var(--color-black);
   font-size: var(--font-size-medium);
-  font-weight: var(--font-light);
+  font-weight: var(--font-regular);
   line-height: 1.7;
 }
 
@@ -197,6 +199,7 @@ img {
 
 .secao-filtros {
   padding: 60px 0;
+  background-color: var(--color-brand-gray);
 }
 
 .filtros-container {
@@ -214,10 +217,9 @@ img {
   justify-content: center;
   align-items: center;
 
-  border: 2px solid;
-  border-radius: var(--border-radius-small);
 
   background: var(--color-white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 
   font-family:"poppins" ;
   font-size: var(--font-size-medium);
@@ -235,8 +237,8 @@ img {
 }
 
 .filtro-natureza:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(254, 255, 246, 0.5);
+  transform: scale(1.05);
+  
 }
 
 .filtro-natureza.ativo {
@@ -252,8 +254,7 @@ img {
 }
 
 .filtro-restaurantes:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(254, 255, 246, 0.5);
+  transform: scale(1.05);
 }
 
 .filtro-restaurantes.ativo {
@@ -269,8 +270,7 @@ img {
 }
 
 .filtro-bares:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(254, 255, 246, 0.5);
+  transform: scale(1.05);
 }
 
 .filtro-bares.ativo {
@@ -286,8 +286,7 @@ img {
 }
 
 .filtro-eventos:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(254, 255, 246, 0.5);
+  transform: scale(1.05);
 }
 
 .filtro-eventos.ativo {
@@ -295,6 +294,169 @@ img {
   color: var(--color-white);
   border-color: var(--color-eventos);
   box-shadow: 0 0 25px rgba(21, 101, 192, 0.6);
+}
+
+/* =========================
+   LOCAIS
+========================= */
+
+.secao-locais {
+  margin-top: 80px;
+  padding: 0 0 80px;
+}
+
+.local-card {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+
+  padding: 48px;
+
+  background: var(--color-white);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.local-nome {
+  margin-bottom: 24px;
+
+  color: var(--color-brand-blue);
+
+  font-size: 2.5rem;
+  font-weight: var(--font-bold);
+}
+
+
+/* =========================
+   CARROSSEL
+========================= */
+
+.carrossel-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 16px;
+}
+
+.local-carrossel {
+  flex: 1;
+}
+
+.carrossel-imagem-container {
+  width: 100%;
+  height: 450px;
+
+  overflow: hidden;
+
+  border-radius: var(--border-radius-small);
+
+  background: #f3f3f3;
+}
+
+.carrossel-imagem {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.carrossel-imagem.trocando {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.carrossel-botao {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  color: var(--color-white);
+
+  font-size: 1.6rem;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.carrossel-botao:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.08);
+}
+
+
+/* =========================
+   INDICADORES
+========================= */
+
+.carrossel-indicadores {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 18px 0 24px;
+}
+
+.indicador {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #d8d8d8;
+
+  transition: background-color 0.35s ease;
+}
+
+.indicador.ativo {
+  background: #555555;
+}
+
+
+/* =========================
+   TEXOS
+========================= */
+
+.local-descricao {
+  margin-bottom: 16px;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-regular);
+
+  line-height: 1.7;
+}
+
+.local-horario {
+  color: #666666;
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-light);
 }
 
 
@@ -335,18 +497,27 @@ img {
     top: 30px;
   }
 
-  .menu-lista {
-    position: fixed;
-    left: -300px;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
-    background: var(--color-white);
-    transition: left 0.2s ease;
-  }
+.menu-lista {
+  position: fixed;
+  left: -300px;
+  top: 0;
+
+  width: 300px;
+  height: 100vh;
+
+  flex-direction: column;
+  align-items: center;
+
+  padding: 100px 20px 40px;
+
+  background: var(--color-white);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  transition: left 0.2s ease;
+}
 
   body.show-mobile-menu .menu-lista {
     left: 0;
@@ -388,4 +559,49 @@ img {
   width: 140px;
   height: 140px;
 }
+
+ .local-card {
+    padding: 24px;
+  }
+
+  .local-nome {
+    margin-bottom: 20px;
+
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+
+  .carrossel-area {
+    gap: 10px;
+  }
+
+  .carrossel-imagem-container {
+    height: 250px;
+  }
+
+  .carrossel-botao {
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.2rem;
+  }
+
+  .carrossel-indicadores {
+    gap: 8px;
+    margin: 16px 0 20px;
+  }
+
+  .indicador {
+    width: 9px;
+    height: 9px;
+  }
+
+  .local-descricao {
+    font-size: var(--font-size-normal);
+    line-height: 1.6;
+  }
+
+  .local-horario {
+    font-size: 0.85rem;
+  }
 }
