@@ -126,6 +126,73 @@
 
             </div>
         </section>
+        <!-- SEÇÃO DE LOCAIS -->
+        <section class="secao-locais">
+            <div class="conteudo-secao">
+
+                <!-- Os locais serão inseridos aqui pelo JavaScript -->
+                <div id="locais-container" class="locais-container"></div>
+
+                <!-- Template reutilizável -->
+                <template id="template-local-card">
+
+                    <article class="local-card">
+
+                        <h2 class="local-nome">
+                            Nome do local
+                        </h2>
+
+                        <div class="local-carrossel">
+
+                            <button
+                                class="carrossel-botao carrossel-botao-anterior"
+                                type="button"
+                                aria-label="Imagem anterior"
+                            >
+                                &#10094;
+                            </button>
+
+                            <div class="carrossel-imagem-container">
+
+                                <img
+                                    src="assets/img/placeholder-local.jpg"
+                                    alt="Imagem do local"
+                                    class="carrossel-imagem"
+                                >
+
+                            </div>
+
+                            <button
+                                class="carrossel-botao carrossel-botao-proximo"
+                                type="button"
+                                aria-label="Próxima imagem"
+                            >
+                                &#10095;
+                            </button>
+
+                        </div>
+
+                        <div class="carrossel-indicadores">
+
+                            <span class="indicador ativo"></span>
+
+                        </div>
+
+                        <p class="local-descricao">
+                            Descrição do local.
+                        </p>
+
+                        <p class="local-horario">
+                            Horário de funcionamento.
+                        </p>
+
+                    </article>
+
+                </template>
+
+            </div>
+        </section>
+    </main>
 
     <script src="js/home.js"></script>
 </body>
