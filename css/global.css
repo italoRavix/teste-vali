@@ -11,6 +11,10 @@ main {
     background-image: url('../assets/img/textura_tatus.png');
 }
 
+h2 {
+    color:#1f286c;
+}
+
 footer {
     height: 25vh;
     background-color: #1f286c;

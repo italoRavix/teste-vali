@@ -52,6 +52,10 @@ h2, p {
     color: #ffffff;
 }
 
+#secao-cadastro h2{
+    color: #ffffff;
+}
+
 /* Elementos de Formulário (Comum) */
 #container-login-cadastro input,
 #container-login-cadastro button {
