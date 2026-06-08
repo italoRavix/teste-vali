@@ -4,91 +4,367 @@
 
 #main-sobre-nos {
   font-family: "Poppins", sans-serif;
+  color: var(--color-black);
 }
 
-#main-sobre-nos h1,
-#main-sobre-nos h2,
-#main-sobre-nos p,
-#main-sobre-nos li {
-  text-align: justify;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-#main-sobre-nos > * {
-  padding-top: 20px;
-}
-
-#main-sobre-nos h1 {
-  font-size: 70px;
-}
-
-#main-sobre-nos h2 {
-  font-size: 60px;
-}
-
-#main-sobre-nos p,
-#main-sobre-nos li {
-  font-size: 50px;
-}
 
 /* =========================
-   SEÇÃO SOBRE NÓS
+   HERO SOBRE NÓS
 ========================= */
 
-#elementos-sobre-nos {
+#secao-sobre-nos {
+  min-height: 100vh;
+  padding: 140px 0 80px;
+
   display: flex;
   align-items: center;
 }
 
-#elementos-sobre-nos p {
-  width: 65%;
+.sobre-nos-conteudo {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
 }
 
-#elementos-sobre-nos img {
-  width: 35%;
+.sobre-nos-etiqueta {
+  display: inline-block;
+
+  margin-bottom: 18px;
+  padding: 8px 18px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-semibold);
 }
+
+.sobre-nos-texto h1 {
+  margin-bottom: 24px;
+
+  color: var(--color-brand-blue);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-hero-title);
+  font-weight: var(--font-extrabold);
+  line-height: 1.1;
+}
+
+.sobre-nos-texto p {
+  max-width: 680px;
+  margin-bottom: 18px;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-regular);
+  line-height: 1.8;
+}
+
+.sobre-nos-imagem-container {
+  display: flex;
+  justify-content: center;
+}
+
+.sobre-nos-imagem {
+  width: 100%;
+  max-width: 420px;
+
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+
+  animation: flutuarImagem 3s ease-in-out infinite;
+}
+
 
 /* =========================
    MISSÃO, VISÃO E VALORES
 ========================= */
 
 #elementos-missao-e-visao {
+  padding: 90px 0;
+}
+
+.missao-visao-conteudo {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1fr 0.8fr;
   align-items: center;
+  gap: 60px;
 }
 
-#secao-missao {
-  grid-column: 1;
-  grid-row: 1;
+.missao-visao-textos {
+  display: grid;
+  gap: 24px;
 }
 
-#secao-visao {
-  grid-column: 1;
-  grid-row: 2;
+.card-institucional {
+  padding: 30px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 24px;
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-#secao-valores {
-  grid-column: 1;
-  grid-row: 3;
+.card-institucional:hover {
+  transform: scale(1.02);
+
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.12);
 }
 
-#imagem-login-cadastro {
-  grid-column: 2;
-  grid-row: 1 / 4;
-  max-width: 35%;
-  justify-self: center;
+.card-icone {
+  width: 52px;
+  height: 52px;
+
+  margin-bottom: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-circle);
+
+  font-size: 1.3rem;
 }
+
+.card-institucional h2 {
+  margin-bottom: 12px;
+
+  color: var(--color-brand-blue);
+
+  font-size: var(--font-size-large);
+  font-weight: var(--font-extrabold);
+}
+
+.card-institucional p,
+.card-institucional li {
+  color: var(--color-black);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-regular);
+  line-height: 1.7;
+}
+
+.card-institucional ul {
+  padding-left: 20px;
+}
+
+.card-institucional li {
+  margin-bottom: 6px;
+  list-style: disc;
+}
+
+.missao-visao-imagem-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.missao-visao-imagem {
+  width: 100%;
+  max-width: 360px;
+
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.14));
+}
+
 
 /* =========================
-   SEÇÕES
+   PLATAFORMA
 ========================= */
 
-#secao-sobre-nos,
-#elementos-missao-e-visao,
 #secao-plataforma {
-  min-height: 100vh;
-  padding-bottom: 100px;
+  padding: 90px 0 110px;
+}
+
+.plataforma-conteudo {
+  max-width: 980px;
+
+  padding: 56px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 30px;
+
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+}
+
+.plataforma-conteudo h2 {
+  margin-bottom: 24px;
+
+  color: var(--color-brand-blue);
+
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
+}
+
+.plataforma-conteudo p {
+  max-width: 780px;
+
+  margin: 0 auto 18px;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-regular);
+  line-height: 1.8;
+}
+
+.plataforma-destaques {
+  margin-top: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plataforma-destaque {
+  padding: 24px 18px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: 22px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.plataforma-destaque:hover {
+  background: var(--color-brand-red);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 12px 28px rgba(163, 0, 0, 0.25);
+}
+
+.plataforma-destaque strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-bold);
+}
+
+.plataforma-destaque span {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes flutuarImagem {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media screen and (max-width: 900px) {
+  #secao-sobre-nos {
+    padding: 120px 0 70px;
+  }
+
+  .sobre-nos-conteudo,
+  .missao-visao-conteudo {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 42px;
+  }
+
+  .sobre-nos-texto h1 {
+    font-size: 2.8rem;
+  }
+
+  .sobre-nos-texto p {
+    max-width: 100%;
+    font-size: var(--font-size-normal);
+  }
+
+  .sobre-nos-imagem,
+  .missao-visao-imagem {
+    max-width: 280px;
+  }
+
+  .card-icone {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-institucional {
+    text-align: center;
+  }
+
+  .card-institucional ul {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .plataforma-conteudo {
+    padding: 42px 28px;
+  }
+
+  .plataforma-destaques {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sobre-nos-texto h1 {
+    font-size: 2.3rem;
+  }
+
+  .sobre-nos-etiqueta {
+    font-size: 0.8rem;
+  }
+
+  .card-institucional {
+    padding: 24px;
+  }
+
+  .plataforma-conteudo {
+    padding: 34px 22px;
+  }
+
+  .plataforma-conteudo h2 {
+    font-size: 1.6rem;
+  }
 }

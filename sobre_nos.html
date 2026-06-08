@@ -1,84 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nós | Vali</title>
+
+    <!-- Ícones - Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Fontes - Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/sobre_nos.css">
 </head>
+
 <body>
 
-    <!-- Header global -->
     <div id="header-container"></div>
 
     <main id="main-sobre-nos">
 
+        <!-- HERO SOBRE NÓS -->
         <section id="secao-sobre-nos">
-            <h1>Sobre Nós</h1>
+            <div class="conteudo-secao sobre-nos-conteudo">
 
-            <div id="elementos-sobre-nos">
-                <p>
-                    A Vali nasceu da união entre tecnologia e a vivência real em Diamantina.
-                    Somos uma empresa focada em transformar a forma como as pessoas interagem
-                    com a cidade. Mais do que apenas listar lugares, nosso objetivo é traduzir
-                    a história e a natureza da região para o ambiente digital, criando
-                    ferramentas que facilitem a descoberta de novas experiências para quem
-                    busca o autêntico e farmar aura.
-                </p>
+                <div class="sobre-nos-texto">
+                    <span class="sobre-nos-etiqueta">
+                        Conheça a Vali
+                    </span>
 
-                <img src="assets/img/sobre_nos_img_1.png" id="imagem-login-cadastro" alt="Ilustração de Diamantina">
+                    <h1>Sobre Nós</h1>
+
+                    <p>
+                        A Vali nasceu da união entre tecnologia e a vivência real em Diamantina.
+                        Somos uma plataforma criada para transformar a forma como universitários,
+                        moradores e visitantes descobrem a cidade.
+                    </p>
+
+                    <p>
+                        Mais do que listar lugares, queremos conectar pessoas a experiências,
+                        histórias, eventos, pontos turísticos, bares, restaurantes e cantinhos
+                        que fazem Diamantina ser única.
+                    </p>
+                </div>
+
+                <div class="sobre-nos-imagem-container">
+                    <img 
+                        src="assets/img/foto_equipe_kkkkkkkk.png" 
+                        class="sobre-nos-imagem" 
+                        alt="Ilustração representando Diamantina"
+                    >
+                </div>
+
             </div>
         </section>
 
+        <!-- MISSÃO, VISÃO E VALORES -->
         <section id="elementos-missao-e-visao">
-            <section id="secao-missao">
-                <h2>Missão</h2>
+            <div class="conteudo-secao missao-visao-conteudo">
 
-                <p>
-                    Melhorar a exploração de Diamantina através de uma plataforma digital
-                    que conecte os universitários à cultura e ao lazer da cidade.
-                </p>
-            </section>
+                <div class="missao-visao-textos">
 
-            <section id="secao-visao">
-                <h2>Visão</h2>
+                    <section id="secao-missao" class="card-institucional">
+                        <span class="card-icone">
+                            <i class="fas fa-bullseye"></i>
+                        </span>
 
-                <p>
-                    Ser o ponto de partida para quem quer viver Diamantina além do óbvio,
-                    unindo tecnologia e vivência local para mapear cada canto da região.
-                </p>
-            </section>
-            
-            <img src="assets/img/sobre_nos_img_2.png" id="imagem-login-cadastro" alt="Ilustração de Diamantina">
+                        <h2>Missão</h2>
 
-            <section id="secao-valores">
-                <h2>Valores</h2>
+                        <p>
+                            Melhorar a exploração de Diamantina por meio de uma plataforma digital
+                            que conecte universitários à cultura, ao lazer e às experiências da cidade.
+                        </p>
+                    </section>
 
-                <ul>
-                    <li>Transparência</li>
-                    <li>Qualidade</li>
-                    <li>Autenticidade</li>
-                    <li>Valorização da cultura</li>
-                </ul>
-            </section>
+                    <section id="secao-visao" class="card-institucional">
+                        <span class="card-icone">
+                            <i class="fas fa-eye"></i>
+                        </span>
+
+                        <h2>Visão</h2>
+
+                        <p>
+                            Ser o ponto de partida para quem quer viver Diamantina além do óbvio,
+                            unindo tecnologia, vivência local e descoberta de novos lugares.
+                        </p>
+                    </section>
+
+                    <section id="secao-valores" class="card-institucional">
+                        <span class="card-icone">
+                            <i class="fas fa-heart"></i>
+                        </span>
+
+                        <h2>Valores</h2>
+
+                        <ul>
+                            <li>Transparência</li>
+                            <li>Qualidade</li>
+                            <li>Autenticidade</li>
+                            <li>Valorização da cultura local</li>
+                        </ul>
+                    </section>
+
+                </div>
+
+                <div class="missao-visao-imagem-container">
+                    <img 
+                        src="assets/img/codando.png" 
+                        class="missao-visao-imagem" 
+                        alt="Ilustração sobre tecnologia e turismo"
+                    >
+                    <img 
+                        src="assets/img/foto_equipe_kkkkkkkkk_2.png"
+                        class="missao-visao-imagem" 
+                        alt="Ilustração sobre tecnologia e turismo"
+                    >
+                </div>
+
+            </div>
         </section>
 
-
+        <!-- PLATAFORMA -->
         <section id="secao-plataforma">
-            <h2>Nossa Plataforma</h2>
+            <div class="conteudo-secao plataforma-conteudo">
 
-            <p>
-                Chega de ficar perdido em grupo do zap ou vasculhando o Maps.
-                O Vali entrega um site intuitivo para você usar enquanto explora.
-                Quer saber qual cachoeira é mais fácil de chegar? Onde vai rolar um som?
-                Ou aquele barzinho escondido? A gente mapeou tudo!
-            </p>
+                <span class="sobre-nos-etiqueta">
+                    Nossa plataforma
+                </span>
 
-            <p>
-                Desenvolvemos uma interface limpa e rápida porque a gente sabe que você
-                prefere gastar seu tempo vivendo a cidade do que pesquisando o que fazer.
-            </p>
+                <h2>Explore Diamantina sem complicação</h2>
+
+                <p>
+                    Chega de ficar perdido em grupos de mensagem ou vasculhando mapas sem saber
+                    para onde ir. A Vali entrega uma experiência simples, rápida e intuitiva para
+                    quem quer descobrir o que fazer na cidade.
+                </p>
+
+                <p>
+                    Quer saber qual cachoeira visitar, onde vai rolar um evento ou qual barzinho
+                    escondido vale a pena conhecer? A Vali foi pensada para aproximar você desses
+                    lugares de forma prática e bonita.
+                </p>
+
+                <div class="plataforma-destaques">
+                    <div class="plataforma-destaque">
+                        <strong>Turismo</strong>
+                        <span>Pontos turísticos e natureza</span>
+                    </div>
+
+                    <div class="plataforma-destaque">
+                        <strong>Lazer</strong>
+                        <span>Bares, restaurantes e eventos</span>
+                    </div>
+
+                    <div class="plataforma-destaque">
+                        <strong>Cupons</strong>
+                        <span>Ofertas e destaques em breve</span>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
     </main>
@@ -87,4 +176,5 @@
     <script src="js/footer.js"></script>
 
 </body>
+
 </html>
