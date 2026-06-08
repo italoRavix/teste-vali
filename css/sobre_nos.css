@@ -9,6 +9,7 @@ h1, h2, #main-sobre-nos p, li{
 
 #main-sobre-nos {
   font-family: "Poppins", sans-serif;
+  padding-top: 50px;
 }
 
 #main-sobre-nos h1,
@@ -83,7 +84,7 @@ h1, h2, #main-sobre-nos p, li{
 #imagem-login-cadastro {
   grid-column: 2;
   grid-row: 1 / 4;
-  max-width: 35%;
+  min-width: 30%;
   justify-self: center;
 }
 
