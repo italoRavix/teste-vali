@@ -13,26 +13,46 @@
 
 #container-cadastro-item {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+
+  padding: 56px;
 
   background: var(--color-white);
-  border-radius: 20px;
 
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 28px;
 
-  padding: 48px;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+
+  font-family: "Poppins", sans-serif;
 }
 
 #secao-cadastro-item h1 {
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 
   color: var(--color-brand-blue);
 
-  font-family: "Poppins", sans-serif;
-  font-size: 2.4rem;
-  font-weight: var(--font-bold);
-
+  font-size: 2.6rem;
+  font-weight: var(--font-extrabold);
   text-align: center;
+  line-height: 1.2;
+}
+
+#secao-cadastro-item::before {
+  content: "Preencha as informações do local para cadastrá-lo na plataforma Vali.";
+
+  display: block;
+
+  max-width: 620px;
+  margin: 0 auto 42px;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-regular);
+  text-align: center;
+  line-height: 1.6;
 }
 
 
@@ -43,15 +63,15 @@
 #form-cadastrar-item {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-
-  font-family: "Poppins", sans-serif;
+  gap: 22px;
 }
 
 #form-cadastrar-item label {
-  color: var(--color-black);
+  margin-bottom: -10px;
 
-  font-size: var(--font-size-normal);
+  color: var(--color-brand-blue);
+
+  font-size: 0.95rem;
   font-weight: var(--font-semibold);
 }
 
@@ -60,10 +80,10 @@
 #form-cadastrar-item select {
   width: 100%;
 
-  padding: 12px 14px;
+  padding: 14px 16px;
 
-  border: 2px solid var(--color-brand-blue);
-  border-radius: var(--border-radius-small);
+  border: 2px solid var(--color-brand-gray);
+  border-radius: 14px;
 
   background: var(--color-white);
   color: var(--color-black);
@@ -75,24 +95,35 @@
 
   transition:
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+#form-cadastrar-item input:hover,
+#form-cadastrar-item textarea:hover,
+#form-cadastrar-item select:hover {
+  border-color: var(--color-brand-blue);
 }
 
 #form-cadastrar-item input:focus,
 #form-cadastrar-item textarea:focus,
 #form-cadastrar-item select:focus {
-  border-color: var(--color-brand-red);
-  box-shadow: 0 0 0 3px rgba(163, 0, 0, 0.12);
+  border-color: var(--color-brand-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(13, 1, 102, 0.12);
+
+  transform: scale(1.01);
 }
 
 #form-cadastrar-item textarea {
+  min-height: 150px;
   resize: vertical;
-  min-height: 140px;
 }
 
 
 /* =========================
-   GRUPOS DO FORMULÁRIO
+   BLOCOS DO FORMULÁRIO
 ========================= */
 
 #secao-contatos-ponto-turistico,
@@ -100,7 +131,14 @@
 #secao-horario-ponto-turistico {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 20px;
+  gap: 18px 24px;
+
+  padding: 24px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 20px;
 }
 
 #secao-contatos-ponto-turistico label,
@@ -109,20 +147,57 @@
   margin-bottom: -8px;
 }
 
+
+/* =========================
+   CHECKBOX
+========================= */
+
 #secao-checkbox-horario-ponto-turistico {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 
-  margin: 4px 0 8px;
+  width: fit-content;
+
+  padding: 12px 16px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 14px;
 }
 
 #secao-checkbox-horario-ponto-turistico input {
-  width: auto;
+  width: 18px;
+  height: 18px;
+
+  accent-color: var(--color-brand-blue);
 }
 
 #secao-checkbox-horario-ponto-turistico label {
-  font-weight: var(--font-regular);
+  margin: 0;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-medium);
+}
+
+
+/* =========================
+   UPLOAD DE IMAGEM
+========================= */
+
+#cadastrar-imagens-ponto-turistico {
+  padding: 18px;
+
+  background: var(--color-white);
+
+  border: 2px dashed var(--color-brand-gray);
+}
+
+#cadastrar-imagens-ponto-turistico:hover {
+  border-color: var(--color-brand-blue);
 }
 
 
@@ -131,8 +206,11 @@
 ========================= */
 
 #form-cadastrar-item button[type="submit"] {
-  margin-top: 16px;
-  padding: 14px 24px;
+  align-self: center;
+
+  min-width: 240px;
+  margin-top: 18px;
+  padding: 15px 32px;
 
   border-radius: var(--border-radius-medium);
 
@@ -143,6 +221,9 @@
   font-size: var(--font-size-medium);
   font-weight: var(--font-bold);
 
+  box-shadow:
+    0 10px 24px rgba(13, 1, 102, 0.25);
+
   transition:
     background 0.3s ease,
     transform 0.3s ease,
@@ -151,8 +232,11 @@
 
 #form-cadastrar-item button[type="submit"]:hover {
   background: var(--color-brand-red);
-  transform: scale(1.02);
-  box-shadow: 0 0 18px rgba(163, 0, 0, 0.35);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 12px 28px rgba(163, 0, 0, 0.32);
 }
 
 #form-cadastrar-item button[type="submit"]:active {
@@ -170,28 +254,43 @@
   }
 
   #container-cadastro-item {
-    padding: 32px 24px;
+    padding: 36px 24px;
+    border-radius: 22px;
   }
 
   #secao-cadastro-item h1 {
     font-size: 2rem;
   }
 
+  #secao-cadastro-item::before {
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+  }
+
   #secao-contatos-ponto-turistico,
   #secao-endereco-ponto-turistico,
   #secao-horario-ponto-turistico {
     grid-template-columns: 1fr;
-    gap: 14px;
+    padding: 20px;
+    gap: 16px;
   }
 
   #form-cadastrar-item {
-    gap: 16px;
+    gap: 18px;
+  }
+
+  #secao-checkbox-horario-ponto-turistico {
+    width: 100%;
+  }
+
+  #form-cadastrar-item button[type="submit"] {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 480px) {
   #container-cadastro-item {
-    padding: 28px 18px;
+    padding: 30px 18px;
   }
 
   #secao-cadastro-item h1 {
@@ -201,10 +300,13 @@
   #form-cadastrar-item input,
   #form-cadastrar-item textarea,
   #form-cadastrar-item select {
+    padding: 12px 14px;
     font-size: 0.95rem;
   }
 
-  #form-cadastrar-item button[type="submit"] {
-    width: 100%;
+  #secao-contatos-ponto-turistico,
+  #secao-endereco-ponto-turistico,
+  #secao-horario-ponto-turistico {
+    padding: 16px;
   }
 }

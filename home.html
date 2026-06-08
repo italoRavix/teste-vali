@@ -4,91 +4,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Vali | Home</title>
 
-    <!-- Font Awesome icone de x -->
+    <!-- Ícones - Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Fonte whereas poppins -->
+    <!-- Fontes - Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap" 
-        rel="stylesheet">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap" 
+        rel="stylesheet"
+    >
 
-    <!-- CSS -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-
-        <!-- NAVBAR -->
-        <nav class="navbar section-content">
-
-            <!-- LOGO -->
-            <a href="index.html" class="navbar-logo">
-                <img src="assets/img/logo_vali_tatu-sem-fundo.png" alt="Logo da Vali">
-            </a>
-
-            <!-- LINKS -->
-            <ul class="navbar-menu">
-                <button id = "menu-close-button" class="fas fa-times"></button>
-
-                <li class="navbar-item">
-                    <a href="index.html" class="navbar-link">Home</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="catalogo.html" class="navbar-link">Catálogo</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="sobre.html" class="navbar-link">Sobre nós</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="login.html" class="navbar-link">Login</a>
-                </li>
-
-            </ul>
-
-            <button id = "menu-open-button" class="fas fa-bars"></button>
-        </nav>
-
-    </header>
+    <div id="header-container">
+    </div>
 
     <main>
-        <!-- SEÇÃO hero -->
-        <section class="hero-section">
-            <div class="section-content">
-                <div class="hero-details">
-                    <h2 class="title">
-                       Indo Praonde? 
-                    </h2>
-                    <p class="texto">
-                        Diamantina tem os lugares que todo mundo<br>
-                        ama, mas também tem os segredos que quase<br>
-                        ninguém conhece. Aqui você encontra todos<br>
-                        eles, além dos melhores eventos da cidade.
+        <section class="secao-hero">
+            <div class="conteudo-secao hero-conteudo">
+
+                <div class="hero-texto">
+                    <h1 class="hero-titulo">Indo Praonde?</h1>
+
+                    <p class="hero-descricao">
+                        Diamantina tem os lugares que todo mundo ama, mas também tem os segredos que quase ninguém conhece. Aqui você encontra todos eles, além dos melhores eventos da cidade.
                     </p>
-                    <div class="buttons">
+
+                    <div class="hero-acoes">
                         <a href="catalogo.html" class="botao-catalogo">
-                            descobrir lugares
+                            Descobrir lugares
                         </a>
                     </div>
                 </div>
-                <div class="hero-image-wrapper">
-                    <img src="assets/img/garota no banco.png" alt="Imagem hero">
+
+                <div class="hero-imagem-container">
+                    <img 
+                        src="assets/img/garota-no-banco.png" 
+                        alt="Ilustração de uma garota sentada em um banco"
+                        class="hero-imagem"
+                    >
                 </div>
+
+            </div>
+        </section>
+        <!-- SEÇÃO DE FILTROS -->
+        <section class="secao-filtros">
+            <div class="conteudo-secao">
+
+                <div class="filtros-container">
+
+                    <button class="filtro-btn filtro-natureza" data-categoria="natureza">
+                        Natureza
+                    </button>
+
+                    <button class="filtro-btn filtro-restaurantes" data-categoria="restaurantes">
+                        Restaurantes
+                    </button>
+
+                    <button class="filtro-btn filtro-bares" data-categoria="bares">
+                        Bares
+                    </button>
+
+                    <button class="filtro-btn filtro-eventos" data-categoria="eventos">
+                        Eventos
+                    </button>
+
+                </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- SEÇÃO DE LOCAIS -->
+        <section class="secao-locais">
+            <div class="conteudo-secao">
+
+                <div id="locais-container" class="locais-container"></div>
+
+                <template id="template-local-card">
+                    <article class="local-card">
+
+                        <h2 class="local-nome">Nome do local</h2>
+
+                        <div class="carrossel-area">
+
+                            <button
+                                class="carrossel-botao carrossel-botao-anterior"
+                                type="button"
+                                aria-label="Imagem anterior"
+                            >
+                                &#10094;
+                            </button>
+
+                            <div class="local-carrossel">
+                                <div class="carrossel-imagem-container">
+                                    <img
+                                        src="assets/img/placeholder-local.jpg"
+                                        alt="Imagem do local"
+                                        class="carrossel-imagem"
+                                    >
+                                </div>
+                            </div>
+
+                            <button
+                                class="carrossel-botao carrossel-botao-proximo"
+                                type="button"
+                                aria-label="Próxima imagem"
+                            >
+                                &#10095;
+                            </button>
+
+                        </div>
+
+                        <div class="carrossel-indicadores">
+                            <span class="indicador ativo"></span>
+                        </div>
+
+                        <p class="local-descricao">
+                            Descrição do local.
+                        </p>
+
+                        <p class="local-horario">
+                            Horário de funcionamento.
+                        </p>
+
+                    </article>
+                </template>
+
             </div>
         </section>
     </main>
 
+    <script src="js/header.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/footer.js"></script>
+
 
 </body>
+
 </html>

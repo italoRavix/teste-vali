@@ -3,65 +3,97 @@ h1, h2, #main-sobre-nos p, li{
     padding-right: 30px;
 }
 
-#main-sobre-nos > *{
-    padding-top: 20px;
+/* =========================
+   SOBRE NÓS
+========================= */
+
+#main-sobre-nos {
+  font-family: "Poppins", sans-serif;
 }
 
-#main-sobre-nos h1{
-    font-size: 70px;
+#main-sobre-nos h1,
+#main-sobre-nos h2,
+#main-sobre-nos p,
+#main-sobre-nos li {
+  text-align: justify;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-#main-sobre-nos h2{
-    font-size: 60px;
+#main-sobre-nos > * {
+  padding-top: 20px;
+}
+
+#main-sobre-nos h1 {
+  font-size: 70px;
+}
+
+#main-sobre-nos h2 {
+  font-size: 60px;
 }
 
 #main-sobre-nos p,
 #main-sobre-nos li {
-    font-size: 50px;
+  font-size: 50px;
 }
 
-#elementos-sobre-nos{
-    display: flex;
+/* =========================
+   SEÇÃO SOBRE NÓS
+========================= */
+
+#elementos-sobre-nos {
+  display: flex;
+  align-items: center;
 }
 
-#elementos-sobre-nos p{
-    width: 65%;
+#elementos-sobre-nos p {
+  width: 65%;
 }
 
-#elementos-sobre-nos img{
-    width: 35%;
+#elementos-sobre-nos img {
+  width: 35%;
 }
 
-#elementos-missao-e-visao{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
+/* =========================
+   MISSÃO, VISÃO E VALORES
+========================= */
+
+#elementos-missao-e-visao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
 }
 
-#secao-missao{
-    grid-column: 1;
-    grid-row: 1;
+#secao-missao {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-#secao-visao{
-    grid-column: 1;
-    grid-row: 2;
+#secao-visao {
+  grid-column: 1;
+  grid-row: 2;
 }
 
-#secao-valores{
-    grid-column: 1;
-    grid-row: 3;
+#secao-valores {
+  grid-column: 1;
+  grid-row: 3;
 }
 
-#imagem-login-cadastro{
-    grid-column: 2;
-    grid-row: 1 / 4;
-    max-width: 30%px;
-    justify-self: center;
+#imagem-login-cadastro {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  max-width: 35%;
+  justify-self: center;
 }
 
-#secao-sobre-nos, #elementos-missao-e-visao, #secao-plataforma{
-    min-height: 100vh;
-    padding-bottom: 100px;
+/* =========================
+   SEÇÕES
+========================= */
+
+#secao-sobre-nos,
+#elementos-missao-e-visao,
+#secao-plataforma {
+  min-height: 100vh;
+  padding-bottom: 100px;
 }

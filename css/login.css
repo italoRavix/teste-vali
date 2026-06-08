@@ -1,109 +1,371 @@
+/* =========================
+   LOGIN E CADASTRO
+========================= */
+
 #main-login {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    height: 100vh;
+  min-height: 100vh;
+  padding: 130px 40px 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
 }
 
-/* Tipografia Geral */
-h2, p {
-    text-align: left;
-    margin-bottom: 15px;
-}
 
-/* Container de Formulários */
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
 #container-login-cadastro {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    
-    width: 100%;
-    max-width: 800px;
-    margin-left: 5%;
-    padding: 10px;
-    
-    background-color: #1f286c;
-    border-radius: 20px;
-    font-size: 1.5rem;
+  width: 100%;
+  max-width: 920px;
+
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 24px;
+
+  padding: 28px;
+
+  background: var(--color-brand-blue);
+
+  border-radius: 32px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.16);
+
+  font-family: "Poppins", sans-serif;
 }
 
-/* Seções Internas (Comum) */
-#secao-login, 
+
+/* =========================
+   SEÇÕES
+========================= */
+
+#secao-login,
 #secao-cadastro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    
-    padding: 20px 15px;
-    border-radius: 20px;
+  min-height: 480px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 42px 36px;
+
+  border-radius: 24px;
 }
 
-/* Seções Internas (Específico) */
 #secao-login {
-    background-color: #ffffff;
-    color: #000000;
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 #secao-cadastro {
-    flex: 2; /* Cadastro mantém a proporção maior */
-    color: #ffffff;
+  background: transparent;
+  color: var(--color-white);
 }
 
-#secao-cadastro h2{
-    color: #ffffff;
+
+/* =========================
+   TIPOGRAFIA
+========================= */
+
+#secao-login h1,
+#secao-cadastro h2 {
+  margin-bottom: 10px;
+
+  font-size: 2rem;
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
 }
 
-/* Elementos de Formulário (Comum) */
-#container-login-cadastro input,
-#container-login-cadastro button {
-    display: block;
-    width: 90%;
-    max-width: 350px;
-    margin-bottom: 15px;
-    padding: 6px;
+#secao-login h1 {
+  color: var(--color-brand-blue);
 }
 
-/* Inputs (Estilo) */
+#secao-cadastro h2 {
+  color: var(--color-white);
+}
+
+#secao-login p,
+#secao-cadastro p {
+  margin-bottom: 32px;
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+}
+
+#secao-login p {
+  color: var(--color-black);
+}
+
+#secao-cadastro p {
+  color: var(--color-white);
+}
+
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+#form-login,
+#form-cadastro {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#form-login label,
+#form-cadastro label {
+  margin-bottom: -6px;
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-semibold);
+}
+
+#form-login label {
+  color: var(--color-brand-blue);
+}
+
+#form-cadastro label {
+  color: var(--color-white);
+}
+
+#container-login-cadastro input {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border-radius: 14px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
 #secao-login input {
-    border: 3px solid #1f286c;
+  border: 2px solid var(--color-brand-gray);
+
+  background: var(--color-white);
+  color: var(--color-black);
 }
 
 #secao-cadastro input {
-    background-color: #1f286c;
-    color: #ffffff;
-    border: 3px solid #ffffff;
+  border: 2px solid var(--color-white);
+
+  background: transparent;
+  color: var(--color-white);
 }
 
-#secao-login input, 
-#secao-cadastro input {
-    border-radius: 10px;
-    font-size: 1.5rem;
+#secao-cadastro input::placeholder {
+  color: var(--color-brand-gray);
 }
 
-/* Botões (Estilo) */
+#secao-login input::placeholder {
+  color: var(--color-brand-gray);
+}
+
+#container-login-cadastro input:hover {
+  transform: scale(1.01);
+}
+
+#secao-login input:hover,
+#secao-login input:focus {
+  border-color: var(--color-brand-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(13, 1, 102, 0.12);
+}
+
+#secao-cadastro input:hover,
+#secao-cadastro input:focus {
+  border-color: var(--color-white);
+
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+#container-login-cadastro button {
+  margin-top: 12px;
+  padding: 14px 24px;
+
+  border-radius: var(--border-radius-medium);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#form-login button,
+#form-cadastro button {
+  margin-top: auto;
+}
+
 #secao-login button {
-    background-color: #ffffff;
-    border: 3px solid #1f286c;
+  border: 2px solid var(--color-brand-blue);
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  box-shadow:
+    0 8px 20px rgba(13, 1, 102, 0.25);
+}
+
+#secao-login button:hover {
+  background: var(--color-brand-red);
+  border-color: var(--color-brand-red);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 10px 24px rgba(163, 0, 0, 0.28);
 }
 
 #secao-cadastro button {
-    background-color: #1f286c;
-    color: #ffffff;
-    border: 3px solid #ffffff;
+  border: 2px solid var(--color-white);
+
+  background: var(--color-white);
+  color: var(--color-brand-blue);
+
+  box-shadow:
+    0 8px 20px rgba(255, 255, 255, 0.16);
 }
 
-#secao-login button, 
-#secao-cadastro button {
-    border-radius: 25px;
-    font-size: 1.8rem;
-    cursor: pointer; /* Adicionado para melhor UX */
+#secao-cadastro button:hover {
+  background: var(--color-brand-red);
+  border-color: var(--color-brand-red);
+  color: var(--color-white);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 10px 24px rgba(163, 0, 0, 0.35);
 }
 
-/* Mídia e Rodapé */
+#container-login-cadastro button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
 #imagem-login-cadastro {
-    height: 90%;
-    object-fit: contain;
+  width: 100%;
+  max-width: 360px;
+  max-height: 78vh;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 18px 28px rgba(0, 0, 0, 0.16));
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media screen and (max-width: 1100px) {
+  #main-login {
+    gap: 32px;
+  }
+
+  #imagem-login-cadastro {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #main-login {
+    padding: 120px 20px 70px;
+
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  #container-login-cadastro {
+    max-width: 620px;
+
+    grid-template-columns: 1fr;
+
+    padding: 24px;
+    border-radius: 26px;
+  }
+
+  #secao-login,
+  #secao-cadastro {
+    min-height: auto;
+
+    padding: 34px 28px;
+    border-radius: 22px;
+  }
+
+  #secao-login h1,
+  #secao-cadastro h2 {
+    font-size: 1.8rem;
+  }
+
+  #secao-login p,
+  #secao-cadastro p {
+    margin-bottom: 26px;
+  }
+
+  #imagem-login-cadastro {
+    max-width: 260px;
+    max-height: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #main-login {
+    padding: 110px 14px 50px;
+  }
+
+  #container-login-cadastro {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  #secao-login,
+  #secao-cadastro {
+    padding: 28px 20px;
+  }
+
+  #secao-login h1,
+  #secao-cadastro h2 {
+    font-size: 1.55rem;
+  }
+
+  #container-login-cadastro input,
+  #container-login-cadastro button {
+    font-size: 0.95rem;
+  }
+
+  #imagem-login-cadastro {
+    max-width: 220px;
+  }
 }

@@ -1,59 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Ponto Turístico | Vali</title>
+
+    <!-- Ícones - Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Fontes - Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/tela_cadastro.css">
+    <link rel="stylesheet" href="css/tela_cadastro_ponto_turistico.css">
 </head>
 
 <body>
+
+    <div id="header-container"></div>
+
     <main id="main-tela-cadastro">
-        
+
         <div id="container-cadastro-item">
-            <!-- Seção de Cadastro  de Item-->
-            <section id="secao-cadastro-item">            
-                <h2>Cadastrar Ponto Turístico</h2>   
-                
-                <form id="form-cadastrar-item">
+
+            <section id="secao-cadastro-item">
+                <h1>Cadastrar Ponto Turístico</h1>
+
+                <form id="form-cadastrar-item" enctype="multipart/form-data">
+
                     <label for="cadastrar-nome-ponto-turistico">Nome</label>
-                    <input type="text" id="cadastrar-nome-ponto-turistico" name="cadastrar-nome-ponto-turistico" required>
+                    <input 
+                        type="text" 
+                        id="cadastrar-nome-ponto-turistico" 
+                        name="cadastrar-nome-ponto-turistico" 
+                        required
+                    >
 
                     <section id="secao-contatos-ponto-turistico">
                         <label for="cadastrar-telefone-ponto-turistico">Telefone</label>
-                        <input type="tel" id="cadastrar-telefone-ponto-turistico" name="cadastrar-telefone-ponto-turistico" >
+                        <input 
+                            type="tel" 
+                            id="cadastrar-telefone-ponto-turistico" 
+                            name="cadastrar-telefone-ponto-turistico"
+                        >
 
                         <label for="cadastrar-email-ponto-turistico">E-mail</label>
-                        <input type="email" id="cadastrar-email-ponto-turistico" name="cadastrar-email-ponto-turistico">
+                        <input 
+                            type="email" 
+                            id="cadastrar-email-ponto-turistico" 
+                            name="cadastrar-email-ponto-turistico"
+                        >
                     </section>
 
                     <section id="secao-endereco-ponto-turistico">
                         <label for="cadastrar-bairro-ponto-turistico">Bairro</label>
-                        <input type="text" id="cadastrar-bairro-ponto-turistico" name="cadastrar-bairro-ponto-turistico" >
+                        <input 
+                            type="text" 
+                            id="cadastrar-bairro-ponto-turistico" 
+                            name="cadastrar-bairro-ponto-turistico"
+                        >
 
                         <label for="cadastrar-rua-ponto-turistico">Rua</label>
-                        <input type="text" id="cadastrar-rua-ponto-turistico" name="cadastrar-rua-ponto-turistico">
-                    </section>   
-                    
-                    <section id="secao-horario-ponto-turistico">
-                        <label for="cadastrar-horario-abertura-ponto-turistico">Horario de Abertura</label>
-                        <input type="time" id="cadastrar-hora-abrir-ponto-turistico" name="cadastrar-hora-abrir-ponto-turistico" >
+                        <input 
+                            type="text" 
+                            id="cadastrar-rua-ponto-turistico" 
+                            name="cadastrar-rua-ponto-turistico"
+                        >
+                    </section>
 
-                        <label for="cadastrar-horario-fechamento-ponto-turistico">Horario de Fechamento</label>
-                        <input type="time" id="cadastrar-hora-fechar-ponto-turistico" name="cadastrar-hora-fechar-ponto-turistico" >
-                    </section>   
+                    <section id="secao-horario-ponto-turistico">
+                        <label for="cadastrar-hora-abrir-ponto-turistico">Horário de abertura</label>
+                        <input 
+                            type="time" 
+                            id="cadastrar-hora-abrir-ponto-turistico" 
+                            name="cadastrar-hora-abrir-ponto-turistico"
+                        >
+
+                        <label for="cadastrar-hora-fechar-ponto-turistico">Horário de fechamento</label>
+                        <input 
+                            type="time" 
+                            id="cadastrar-hora-fechar-ponto-turistico" 
+                            name="cadastrar-hora-fechar-ponto-turistico"
+                        >
+                    </section>
 
                     <section id="secao-checkbox-horario-ponto-turistico">
-                        <input type="checkbox" id="cadastrar-ponto-turistico-24-horas" name="cadastrar-ponto-turistico-24-horas">       
-                        <label for="cadastrar-ponto-turistico-24-horas">Aberto 24h</label>
-                    </section>             
-                    
+                        <input 
+                            type="checkbox" 
+                            id="cadastrar-ponto-turistico-24-horas" 
+                            name="cadastrar-ponto-turistico-24-horas"
+                        >
+
+                        <label for="cadastrar-ponto-turistico-24-horas">
+                            Aberto 24h
+                        </label>
+                    </section>
+
                     <label for="cadastrar-descricao-ponto-turistico">Descrição</label>
-                    <textarea id="cadastrar-descricao-ponto-turistico" name="cadastrar-descricao-ponto-turistico" rows="10" cols="40" required></textarea>
-                    
+                    <textarea 
+                        id="cadastrar-descricao-ponto-turistico" 
+                        name="cadastrar-descricao-ponto-turistico" 
+                        rows="10" 
+                        cols="40" 
+                        required
+                    ></textarea>
+
                     <label for="cadastrar-categoria-ponto-turistico">Categoria</label>
-                    <select id="cadastrar-categoria-ponto-turistico" name="cadastrar-categoria-ponto-turistico" required>
+                    <select 
+                        id="cadastrar-categoria-ponto-turistico" 
+                        name="cadastrar-categoria-ponto-turistico" 
+                        required
+                    >
                         <option value="" selected disabled>Selecione uma categoria</option>
                         <option value="Natureza">Natureza</option>
                         <option value="Bar">Bar</option>
@@ -62,19 +126,31 @@
                         <option value="Outro">Outro</option>
                     </select>
 
-                    <label for="cadastrar-imagens-ponto-turistico">Upload de Imagens</label>
-                    <input type="file" id="cadastrar-imagens-ponto-turistico" name="cadastrar-imagens-ponto-turistico" accept="image/*" multiple>
-                 
-                    <button type="submit">Cadastrar</button>
-                </form>              
+                    <label for="cadastrar-imagens-ponto-turistico">Upload de imagens</label>
+                    <input 
+                        type="file" 
+                        id="cadastrar-imagens-ponto-turistico" 
+                        name="cadastrar-imagens-ponto-turistico" 
+                        accept="image/*" 
+                        multiple
+                    >
 
+                    <button type="submit">
+                        Cadastrar
+                    </button>
+
+                </form>
             </section>
+
         </div>
 
     </main>
 
-    <script src="js/footer.js"></script>
-    <script src="js/cadastro_ponto_turistico.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/cadastro_ponto_turistico.js">
+    </script><script src="js/footer.js"></script>
+    
 
 </body>
+
 </html>

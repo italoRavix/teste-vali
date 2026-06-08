@@ -1,42 +1,443 @@
-/* Reset e Globais */
+/* =========================
+   RESET
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Layout Principal */
+
+/* =========================
+   VARIÁVEIS
+========================= */
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-brand-blue: #0d0166;
+  --color-brand-red: #a30000;
+  --color-brand-gray: #dad9d9;
+
+  /* Categorias */
+  --color-natureza: #2e7d32;
+  --color-restaurantes: #c62828;
+  --color-bares: #f9a825;
+  --color-eventos: #1565c0;
+
+  /* Fontes */
+  --font-size-small: 0.9rem;
+  --font-size-normal: 1rem;
+  --font-size-medium: 1.12rem;
+  --font-size-large: 1.5rem;
+  --font-size-xlarge: 2rem;
+  --font-size-hero-title: 4rem;
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 900;
+
+  /* Bordas */
+  --border-radius-thin: 3px;
+  --border-radius-small: 8px;
+  --border-radius-medium: 30px;
+  --border-radius-circle: 50%;
+
+  /* Layout */
+  --site-max-width: 1300px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.rodape {
+  background: var(--color-black);
+  color: var(--color-white);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.rodape-conteudo {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 36px;
+
+  padding-top: 56px;
+  padding-bottom: 42px;
+}
+
+.rodape-logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rodape-logo {
+  width: 86px;
+}
+
+.rodape-descricao {
+  max-width: 260px;
+
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+}
+
+.rodape-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rodape-titulo {
+  margin-bottom: 8px;
+
+  color: var(--color-white);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+}
+
+.rodape-link,
+.rodape-texto {
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+}
+
+.rodape-link {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.rodape-link:hover {
+  color: var(--color-white);
+  transform: translateX(4px);
+}
+
+.rodape-base {
+  padding: 18px 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  text-align: center;
+}
+
+.rodape-base p {
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+}
+
+
+/* =========================
+   ESTILOS GLOBAIS
+========================= */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 main {
-    background-color: #ffffff;
-    background-image: url('../assets/img/textura_tatus.png');
+  background-color: #ffffff;
+  background-image: url("../assets/img/textura_tatus.png");
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 h2 {
-    color:#1f286c;
+  color: var(--color-brand-blue);
 }
 
-footer {
-    height: 25vh;
-    background-color: #1f286c;
-    color: #f0f0f0;
+.conteudo-secao {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-#footer-content{
-    display: flex;
-    height: 90%;
-    padding: 1%;
+
+/* =========================
+   CABEÇALHO
+========================= */
+.cabecalho {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  background: var(--color-black);
 }
 
-.footer-section{
-    flex: 1;
+
+/* =========================
+   MENU DE NAVEGAÇÃO
+========================= */
+.menu-navegacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 }
 
-.footer-section h3, .footer-section p{
-    margin-top: 5px;
+.logo-imagem {
+  width: 80px;
+}
+
+.menu-lista {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.menu-link {
+  padding: 4px 15px;
+
+  color: var(--color-black);
+  background: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-medium);
+
+  transition: box-shadow 0.5s ease;
+}
+
+.menu-link:hover {
+  box-shadow: 0 0 15px var(--color-white);
+}
+
+.menu-botao-abrir,
+.menu-botao-fechar {
+  display: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.rodape {
+  background: var(--color-black);
+  color: var(--color-white);
+
+  font-family: "Poppins", sans-serif;
+}
+
+.rodape-conteudo {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(4, 1fr);
+  gap: 36px;
+
+  padding-top: 56px;
+  padding-bottom: 42px;
+}
+
+.rodape-logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rodape-logo {
+  width: 86px;
+}
+
+.rodape-descricao {
+  max-width: 260px;
+
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-regular);
+  line-height: 1.6;
+}
+
+.rodape-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rodape-titulo {
+  margin-bottom: 8px;
+
+  color: var(--color-white);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+}
+
+.rodape-link,
+.rodape-texto {
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+}
+
+.rodape-link {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.rodape-link:hover {
+  color: var(--color-white);
+  transform: translateX(4px);
+}
+
+.rodape-base {
+  padding: 18px 20px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  text-align: center;
+}
+
+.rodape-base p {
+  color: var(--color-brand-gray);
+
+  font-size: var(--font-size-small);
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --font-size-medium: 1rem;
+    --font-size-large: 1.3rem;
+    --font-size-xlarge: 1.5rem;
+    --font-size-hero-title: 2.5rem;
+  }
+
+
+  /* =========================
+     MENU MOBILE
+  ========================= */
+
+  body.show-mobile-menu .cabecalho::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .menu-botao-abrir,
+  .menu-botao-fechar {
+    display: block;
+    font-size: var(--font-size-large);
+  }
+
+  .menu-botao-abrir {
+    color: var(--color-white);
+    padding-right: 20px;
+  }
+
+  .menu-botao-fechar {
+    color: var(--color-black);
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+
+  .menu-lista {
+    position: fixed;
+    left: -300px;
+    top: 0;
+
+    width: 300px;
+    height: 100vh;
+
+    flex-direction: column;
     align-items: center;
+
+    padding: 100px 20px 40px;
+
+    background: var(--color-white);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
+    transition: left 0.2s ease;
+  }
+
+  body.show-mobile-menu .menu-lista {
+    left: 0;
+  }
+
+  .menu-lista .menu-link {
+    display: block;
+    margin-top: 17px;
+    padding: 10px 20px;
+
+    color: var(--color-black);
+
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-light);
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .rodape-conteudo {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    padding-top: 42px;
+    padding-bottom: 36px;
+  }
+
+  .rodape-logo-area {
+    grid-column: 1 / -1;
+  }
 }
 
-#footer-bottom{
-    height: 10%;
+@media screen and (max-width: 480px) {
+  .rodape-conteudo {
+    grid-template-columns: 1fr;
     text-align: center;
+  }
+
+  .rodape-logo-area {
+    align-items: center;
+  }
+
+  .rodape-descricao {
+    max-width: 100%;
+  }
+
+  .rodape-secao {
+    align-items: center;
+  }
+
+  .rodape-link:hover {
+    transform: none;
+  }
 }
