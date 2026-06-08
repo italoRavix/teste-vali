@@ -1,5 +1,4 @@
 h1, h2, #main-sobre-nos p, li{
-    text-align: justify;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -58,7 +57,7 @@ h1, h2, #main-sobre-nos p, li{
 #imagem-login-cadastro{
     grid-column: 2;
     grid-row: 1 / 4;
-    max-width: 35%px;
+    max-width: 30%px;
     justify-self: center;
 }
 
