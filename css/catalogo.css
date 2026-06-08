@@ -1,0 +1,189 @@
+/* =========================
+   CATÁLOGO EM BREVE
+========================= */
+
+#main-catalogo {
+  min-height: 100vh;
+  padding: 130px 20px 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#secao-catalogo-em-breve {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-catalogo-em-breve {
+  width: 100%;
+  max-width: 760px;
+
+  padding: 56px 48px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+
+  text-align: center;
+
+  animation: aparecerSuave 0.8s ease forwards;
+}
+
+#icone-catalogo-em-breve {
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-circle);
+
+  font-size: 2.4rem;
+
+  box-shadow:
+    0 0 24px rgba(13, 1, 102, 0.28);
+
+  animation: flutuar 2.8s ease-in-out infinite;
+}
+
+#container-catalogo-em-breve h1 {
+  margin-bottom: 18px;
+
+  color: var(--color-brand-blue);
+
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
+}
+
+#container-catalogo-em-breve p {
+  max-width: 600px;
+
+  margin: 0 auto 32px;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-regular);
+  line-height: 1.7;
+}
+
+#botao-voltar-home {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 13px 28px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#botao-voltar-home:hover {
+  background: var(--color-brand-red);
+
+  transform: scale(1.04);
+
+  box-shadow:
+    0 10px 24px rgba(163, 0, 0, 0.28);
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecerSuave {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media screen and (max-width: 900px) {
+  #main-catalogo {
+    padding: 120px 18px 60px;
+  }
+
+  #container-catalogo-em-breve {
+    padding: 42px 28px;
+    border-radius: 24px;
+  }
+
+  #icone-catalogo-em-breve {
+    width: 76px;
+    height: 76px;
+    font-size: 2rem;
+  }
+
+  #container-catalogo-em-breve h1 {
+    font-size: 1.8rem;
+  }
+
+  #container-catalogo-em-breve p {
+    font-size: var(--font-size-normal);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #container-catalogo-em-breve {
+    padding: 36px 22px;
+  }
+
+  #container-catalogo-em-breve h1 {
+    font-size: 1.55rem;
+  }
+
+  #botao-voltar-home {
+    width: 100%;
+  }
+}
