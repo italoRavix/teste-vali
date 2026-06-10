@@ -326,6 +326,54 @@
   font-weight: var(--font-light);
 }
 
+/* =========================
+   admin
+========================= */
+
+.secao-admin-home {
+  display: none;
+  padding: 40px 0;
+}
+
+.secao-admin-home.visivel {
+  display: block;
+}
+
+.admin-home-botoes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.admin-home-btn {
+  min-height: 110px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: 20px;
+
+  font-weight: var(--font-bold);
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.admin-home-btn:hover {
+  background: var(--color-brand-red);
+  transform: scale(1.03);
+  box-shadow: 0 10px 24px rgba(163, 0, 0, 0.25);
+}
+
 
 /* =========================
    RESPONSIVIDADE
@@ -402,5 +450,15 @@
 
   .local-horario {
     font-size: 0.85rem;
+  }
+
+ .admin-home-botoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .admin-home-botoes {
+    grid-template-columns: 1fr;
   }
 }

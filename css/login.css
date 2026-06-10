@@ -196,6 +196,36 @@
 
 
 /* =========================
+   MENSAGENS
+========================= */
+
+#mensagem-login,
+#mensagem-cadastro {
+  min-height: 22px;
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-medium);
+  line-height: 1.4;
+}
+
+#mensagem-login {
+  text-align: left;
+}
+
+#mensagem-cadastro {
+  text-align: left;
+}
+
+.mensagem-erro {
+  color: var(--color-brand-red);
+}
+
+.mensagem-sucesso {
+  color: var(--color-natureza);
+}
+
+
+/* =========================
    BOTÕES
 ========================= */
 

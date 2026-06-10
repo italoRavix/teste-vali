@@ -1,0 +1,272 @@
+/* =========================
+   CADASTRO DE ADMINISTRADOR
+========================= */
+
+#main-cadastro-adm {
+  min-height: 100vh;
+
+  padding: 140px 20px 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#secao-cadastro-adm {
+  width: 100%;
+  max-width: 900px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+#container-cadastro-adm {
+  padding: 56px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+#cabecalho-cadastro-adm {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+#icone-cadastro-adm {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-circle);
+
+  font-size: 2rem;
+
+  box-shadow:
+    0 10px 24px rgba(13, 1, 102, 0.25);
+}
+
+#cabecalho-cadastro-adm h1 {
+  margin-bottom: 12px;
+
+  color: var(--color-brand-blue);
+
+  font-size: 2.4rem;
+  font-weight: var(--font-extrabold);
+
+  line-height: 1.2;
+}
+
+#cabecalho-cadastro-adm p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-regular);
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+#form-cadastro-adm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#form-cadastro-adm label {
+  margin-bottom: -8px;
+
+  color: var(--color-brand-blue);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-semibold);
+}
+
+#form-cadastro-adm input {
+  width: 100%;
+
+  padding: 14px 16px;
+
+  border: 2px solid var(--color-brand-gray);
+  border-radius: 14px;
+
+  background: var(--color-white);
+  color: var(--color-black);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+#form-cadastro-adm input:hover {
+  border-color: var(--color-brand-blue);
+}
+
+#form-cadastro-adm input:focus {
+  border-color: var(--color-brand-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(13, 1, 102, 0.12);
+
+  transform: scale(1.01);
+}
+
+
+/* =========================
+   SENHAS
+========================= */
+
+#grupo-senhas-adm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  padding: 24px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 20px;
+}
+
+.campo-cadastro-adm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+#botao-cadastrar-adm {
+  margin-top: 12px;
+
+  padding: 15px 28px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-bold);
+
+  box-shadow:
+    0 10px 24px rgba(13, 1, 102, 0.25);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#botao-cadastrar-adm:hover {
+  background: var(--color-brand-red);
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 12px 28px rgba(163, 0, 0, 0.32);
+}
+
+#botao-cadastrar-adm:active {
+  transform: scale(0.98);
+}
+
+#mensagem-cadastro-adm {
+  min-height: 24px;
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-medium);
+}
+
+.mensagem-erro {
+  color: var(--color-brand-red);
+}
+
+.mensagem-sucesso {
+  color: var(--color-natureza);
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media screen and (max-width: 900px) {
+
+  #main-cadastro-adm {
+    padding: 120px 16px 60px;
+  }
+
+  #container-cadastro-adm {
+    padding: 36px 24px;
+  }
+
+  #cabecalho-cadastro-adm h1 {
+    font-size: 2rem;
+  }
+
+  #grupo-senhas-adm {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #botao-cadastrar-adm {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  #container-cadastro-adm {
+    padding: 28px 18px;
+  }
+
+  #cabecalho-cadastro-adm h1 {
+    font-size: 1.7rem;
+  }
+
+  #icone-cadastro-adm {
+    width: 68px;
+    height: 68px;
+
+    font-size: 1.7rem;
+  }
+}

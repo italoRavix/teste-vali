@@ -137,6 +137,15 @@ function prepararCarrossel(card, imagens, nomeLocal) {
 }
 
 
+const secaoAdminHome = document.querySelector("#secao-admin-home");
+
+const usuarioLogado = localStorage.getItem("usuarioLogado");
+const tipoUsuario = localStorage.getItem("tipoUsuario");
+
+if (secaoAdminHome && usuarioLogado === "true" && tipoUsuario === "admin") {
+    secaoAdminHome.classList.add("visivel");
+}
+
 // =========================
 // INICIALIZAÇÃO
 // =========================

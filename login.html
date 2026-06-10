@@ -12,10 +12,8 @@
     <!-- Fontes - Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap" 
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Oi&family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Estilos -->
     <link rel="stylesheet" href="css/global.css">
@@ -24,37 +22,25 @@
 
 <body>
 
-    <!-- Header global -->
     <div id="header-container"></div>
 
     <main id="main-login">
 
-        <!-- Container principal de login e cadastro -->
         <div id="container-login-cadastro">
 
-            <!-- Seção de Login -->
             <section id="secao-login">
                 <h1>Bem-vindo de volta</h1>
                 <p>Acesse sua conta agora.</p>
 
                 <form id="form-login">
-                    <label for="usuario_login">Usuário</label>
-                    <input 
-                        type="text" 
-                        id="usuario_login" 
-                        name="usuario_login" 
-                        placeholder="Digite seu usuário" 
-                        required
-                    >
+                    <label for="usuario_login">E-mail</label>
+                    <input type="email" id="usuario_login" name="usuario_login" placeholder="Digite seu e-mail"
+                        required>
 
                     <label for="senha_login">Senha</label>
-                    <input 
-                        type="password" 
-                        id="senha_login" 
-                        name="senha_login" 
-                        placeholder="Digite sua senha" 
-                        required
-                    >
+                    <input type="password" id="senha_login" name="senha_login" placeholder="Digite sua senha" required>
+
+                    <div id="mensagem-login"></div>
 
                     <button type="submit">
                         Entrar
@@ -62,38 +48,20 @@
                 </form>
             </section>
 
-            <!-- Seção de Cadastro -->
             <section id="secao-cadastro">
                 <h2>Criar conta</h2>
                 <p>Cadastre-se para começar.</p>
 
                 <form id="form-cadastro">
-                    <label for="usuario_cadastro">Usuário</label>
-                    <input 
-                        type="text" 
-                        id="usuario_cadastro" 
-                        name="usuario_cadastro" 
-                        placeholder="Digite seu usuário" 
-                        required
-                    >
-
                     <label for="email_cadastro">E-mail</label>
-                    <input 
-                        type="email" 
-                        id="email_cadastro" 
-                        name="email_cadastro" 
-                        placeholder="Digite seu e-mail" 
-                        required
-                    >
+                    <input type="email" id="email_cadastro" name="email_cadastro" placeholder="Digite seu e-mail"
+                        required>
 
                     <label for="senha_cadastro">Senha</label>
-                    <input 
-                        type="password" 
-                        id="senha_cadastro" 
-                        name="senha_cadastro" 
-                        placeholder="Digite sua senha" 
-                        required
-                    >
+                    <input type="password" id="senha_cadastro" name="senha_cadastro" placeholder="Digite sua senha"
+                        required>
+
+                    <div id="mensagem-cadastro"></div>
 
                     <button type="submit">
                         Cadastrar
@@ -103,17 +71,14 @@
 
         </div>
 
-        <!-- Elemento visual -->
-        <img 
-            src="assets/img/garoto_com_celular_sem_fundo_adobe.png" 
-            id="imagem-login-cadastro" 
-            alt="Ilustração de um garoto usando celular"
-        >
+        <img src="assets/img/garoto_com_celular_sem_fundo_adobe.png" id="imagem-login-cadastro"
+            alt="Ilustração de um garoto usando celular">
 
     </main>
 
     <script src="js/header.js"></script>
     <script src="js/footer.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 

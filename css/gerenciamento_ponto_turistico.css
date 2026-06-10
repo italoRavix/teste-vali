@@ -1,0 +1,296 @@
+/* =========================
+   GERENCIAMENTO DE LOCAIS
+========================= */
+
+#main-crude-item {
+  min-height: 100vh;
+
+  padding: 140px 20px 80px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+#container-crude-item {
+  width: 100%;
+  max-width: 850px;
+}
+
+#secao-crude-item {
+  padding: 56px;
+
+  background: var(--color-white);
+
+  border: 1px solid var(--color-brand-gray);
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+#cabecalho-crude-item {
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+#icone-crude-item {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-circle);
+
+  font-size: 2rem;
+
+  box-shadow:
+    0 10px 24px rgba(13, 1, 102, 0.25);
+}
+
+#cabecalho-crude-item h1 {
+  margin-bottom: 12px;
+
+  color: var(--color-brand-blue);
+
+  font-size: 2.4rem;
+  font-weight: var(--font-extrabold);
+
+  line-height: 1.2;
+}
+
+#cabecalho-crude-item p {
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  color: var(--color-black);
+
+  font-size: var(--font-size-normal);
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   BUSCA
+========================= */
+
+#form-editar-cadastro-item {
+  margin-bottom: 36px;
+}
+
+#form-editar-cadastro-item label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--color-brand-blue);
+
+  font-size: var(--font-size-small);
+  font-weight: var(--font-semibold);
+}
+
+.grupo-busca-item {
+  display: flex;
+  gap: 14px;
+}
+
+.grupo-busca-item input {
+  flex: 1;
+
+  padding: 14px 16px;
+
+  border: 2px solid var(--color-brand-gray);
+  border-radius: 14px;
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.grupo-busca-item input:hover {
+  border-color: var(--color-brand-blue);
+}
+
+.grupo-busca-item input:focus {
+  border-color: var(--color-brand-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(13, 1, 102, 0.12);
+
+  transform: scale(1.01);
+}
+
+.grupo-busca-item button {
+  padding: 14px 24px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.grupo-busca-item button:hover {
+  background: var(--color-brand-red);
+
+  transform: scale(1.03);
+
+  box-shadow:
+    0 10px 24px rgba(163, 0, 0, 0.25);
+}
+
+
+/* =========================
+   AÇÕES
+========================= */
+
+.acoes-gerenciamento-item {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.botao-gerenciamento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+
+  padding: 16px 24px;
+
+  background: var(--color-brand-blue);
+  color: var(--color-white);
+
+  border-radius: var(--border-radius-medium);
+
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-bold);
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.botao-gerenciamento:hover {
+  background: var(--color-brand-red);
+
+  transform: scale(1.02);
+
+  box-shadow:
+    0 10px 24px rgba(163, 0, 0, 0.25);
+}
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+#imagem-item-cadastro {
+  width: 100%;
+  max-width: 340px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 18px 28px rgba(0, 0, 0, 0.16));
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media screen and (max-width: 1000px) {
+
+  #main-crude-item {
+    flex-direction: column;
+
+    gap: 32px;
+
+    padding: 120px 20px 60px;
+  }
+
+  #imagem-item-cadastro {
+    max-width: 260px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  #secao-crude-item {
+    padding: 36px 24px;
+  }
+
+  #cabecalho-crude-item h1 {
+    font-size: 2rem;
+  }
+
+  .grupo-busca-item {
+    flex-direction: column;
+  }
+
+  .grupo-busca-item button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  #secao-crude-item {
+    padding: 28px 18px;
+  }
+
+  #cabecalho-crude-item h1 {
+    font-size: 1.7rem;
+  }
+
+  #icone-crude-item {
+    width: 68px;
+    height: 68px;
+
+    font-size: 1.7rem;
+  }
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciar Usuários | Vali</title>
+    <title>Gerenciar Pontos Turísticos | Vali</title>
 
     <!-- Ícones - Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,7 +19,7 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/gerenciamento_usuario.css">
+    <link rel="stylesheet" href="css/gerenciamento_ponto_turistico.css">
 </head>
 
 <body>
@@ -27,40 +27,40 @@
     <!-- Header global -->
     <div id="header-container"></div>
 
-    <main id="main-gerenciamento-usuario">
+    <main id="main-crude-item">
 
-        <section id="container-gerenciamento-usuario">
+        <section id="container-crude-item">
 
-            <div id="secao-gerenciamento-usuario">
+            <div id="secao-crude-item">
 
-                <div id="cabecalho-gerenciamento-usuario">
+                <div id="cabecalho-crude-item">
 
-                    <span id="icone-gerenciamento-usuario">
-                        <i class="fas fa-users-cog"></i>
+                    <span id="icone-crude-item">
+                        <i class="fas fa-map-marker-alt"></i>
                     </span>
 
-                    <h1>Gerenciar usuários</h1>
+                    <h1>Gerenciar Pontos Turísticos</h1>
 
                     <p>
-                        Busque, edite, liste ou cadastre novos usuários administradores da plataforma Vali.
+                        Busque, edite, liste ou cadastre novas localizações da plataforma Vali.
                     </p>
 
                 </div>
 
                 <!-- BUSCA -->
-                <form id="form-buscar-usuario">
+                <form id="form-editar-cadastro-item">
 
-                    <label for="busca-usuario-para-edicao">
-                        Buscar usuário
+                    <label for="busca-item-para-edicao">
+                        Buscar localização
                     </label>
 
-                    <div class="grupo-busca-usuario">
+                    <div class="grupo-busca-item">
 
                         <input
                             type="text"
-                            id="busca-usuario-para-edicao"
-                            name="busca-usuario-para-edicao"
-                            placeholder="Digite um e-mail ou palavra-chave"
+                            id="busca-item-para-edicao"
+                            name="busca-localizacao-para-edicao"
+                            placeholder="Digite um ID ou palavra-chave"
                             required
                         >
 
@@ -74,23 +74,23 @@
                 </form>
 
                 <!-- AÇÕES -->
-                <div class="acoes-gerenciamento-usuario">
+                <div class="acoes-gerenciamento-item">
 
                     <a
-                        href="tela_cadastro_usuario_adm.html"
-                        class="botao-gerenciamento-usuario"
+                        href="tela_cadastro_ponto_turistico.html"
+                        class="botao-gerenciamento"
                     >
-                        <i class="fas fa-user-plus"></i>
-                        Cadastrar novo administrador
+                        <i class="fas fa-plus"></i>
+                        Cadastrar nova localização
                     </a>
 
                     <button
                         type="button"
-                        class="botao-gerenciamento-usuario"
-                        id="botao-listar-usuarios"
+                        class="botao-gerenciamento"
+                        id="botao-listar-localizacoes"
                     >
                         <i class="fas fa-list"></i>
-                        Listar usuários
+                        Listar localizações
                     </button>
 
                 </div>
@@ -102,7 +102,7 @@
         <!-- Elemento visual -->
         <img
             src="assets/img/garoto_com_celular_sem_fundo_adobe.png"
-            id="imagem-gerenciamento-usuario"
+            id="imagem-item-cadastro"
             alt="Ilustração de um garoto usando celular"
         >
 
