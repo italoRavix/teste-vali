@@ -32,7 +32,6 @@ public class PontoTuristicoDto {
         private List<String> imagem;
         private List<String> email;
         @JsonProperty("idCriador")
-        @JsonIgnore
         private Integer idCriador;
 
 

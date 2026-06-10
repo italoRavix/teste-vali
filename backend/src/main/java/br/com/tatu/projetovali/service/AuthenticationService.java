@@ -29,52 +29,59 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
+
     @Value("${jwt.expiration}")
     private long expirationTime;
 
-    public void register(RegisterRequestDto dto)throws BadRequestException {
+    public void register(RegisterRequestDto dto) throws BadRequestException {
         UsuarioEntity usuario = usuarioRepository.findByNome(dto.getNome())
                 .orElse(null);
-        if(usuario != null){
+
+        if (usuario != null) {
             throw new BadRequestException("Usuario já cadastrado com esse nome");
         }
+
         RolesEntity role = rolesRepository.findBynome(RoleTypeEnum.ROLE_PADRAO.name())
-                        .orElseGet(() -> rolesRepository.save(RolesEntity.builder()
-                                        .nome(RoleTypeEnum.ROLE_PADRAO.name())
-                                         .build()
-                        ));
-        usuarioRepository.save(UsuarioEntity.builder()
+                .orElseGet(() -> rolesRepository.save(
+                        RolesEntity.builder()
+                                .nome(RoleTypeEnum.ROLE_PADRAO.name())
+                                .build()));
+
+        usuarioRepository.save(
+                UsuarioEntity.builder()
                         .nome(dto.getNome())
                         .senha(passwordEncoder.encode(dto.getSenha()))
                         .roles(Set.of(role))
-                .build());
+                        .build());
     }
 
-
-    public TokenResponseDTO login(LoginRequestDto loginDto) throws Exception{
-        try{
+    public TokenResponseDTO login(LoginRequestDto loginDto) throws Exception {
+        try {
             Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginDto.getNome(), loginDto.getSenha())
-            );
+                    new UsernamePasswordAuthenticationToken(
+                            loginDto.getNome(),
+                            loginDto.getSenha()));
 
             String token = tokenProvider.gerarToken(authentication);
+
+            String role = authentication.getAuthorities()
+                    .stream()
+                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADM"))
+                            ? "ROLE_ADM"
+                            : "ROLE_PADRAO";
+
             return TokenResponseDTO.builder()
                     .token(token)
                     .type("Bearer")
                     .expiration(expirationTime)
+                    .role(role)
                     .build();
-        }catch (BadCredentialsException e){
+
+        } catch (BadCredentialsException e) {
             throw new BadRequestException("Credenciais inválidas");
-        }catch (Exception e){
+
+        } catch (Exception e) {
             throw new Exception("Erro interno inesperado: " + e.getMessage());
         }
     }
-
-
-
-
-
-
-
-
 }

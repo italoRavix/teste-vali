@@ -126,14 +126,16 @@
                         <option value="Outro">Outro</option>
                     </select>
 
-                    <label for="cadastrar-imagens-ponto-turistico">Upload de imagens</label>
-                    <input 
-                        type="file" 
+                    <label for="cadastrar-imagens-ponto-turistico">
+                        URLs das imagens
+                    </label>
+                    
+                    <textarea 
                         id="cadastrar-imagens-ponto-turistico" 
                         name="cadastrar-imagens-ponto-turistico" 
-                        accept="image/*" 
-                        multiple
-                    >
+                        rows="4"
+                        placeholder="Cole uma URL por linha">
+                    </textarea>
 
                     <button type="submit">
                         Cadastrar
@@ -147,8 +149,9 @@
     </main>
 
     <script src="js/header.js"></script>
-    <script src="js/cadastro_ponto_turistico.js">
-    </script><script src="js/footer.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cadastro_ponto_turistico.js"></script>
+    <script src="js/footer.js"></script>
     
 
 </body>

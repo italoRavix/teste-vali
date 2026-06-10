@@ -1,153 +1,147 @@
 // ======================================================
 // LOGIN E CADASTRO - VALI
-// ------------------------------------------------------
-// Realiza as validações dos formulários de login
-// e cadastro de usuários.
-// ======================================================
-
-
-// ======================================================
-// ELEMENTOS
 // ======================================================
 
 const formLogin = document.querySelector("#form-login");
 const formCadastro = document.querySelector("#form-cadastro");
 
-const mensagemLogin =
-    document.querySelector("#mensagem-login");
-
-const mensagemCadastro =
-    document.querySelector("#mensagem-cadastro");
+const mensagemLogin = document.querySelector("#mensagem-login");
+const mensagemCadastro = document.querySelector("#mensagem-cadastro");
 
 
 // ======================================================
 // LOGIN
+// ------------------------------------------------------
+// Usuário sem login continua navegando normalmente.
+// Login comum não altera permissões visuais.
+// Login ADM libera as opções administrativas.
+// O login permanece ao recarregar a página.
+// Ao fechar a aba/navegador, a sessão é encerrada.
 // ======================================================
 
 if (formLogin && mensagemLogin) {
-
-    formLogin.addEventListener("submit", (event) => {
-
+    formLogin.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const email =
-            document.querySelector("#usuario_login").value.trim();
+        const nome = document.querySelector("#usuario_login").value.trim();
+        const senha = document.querySelector("#senha_login").value;
 
-        const senha =
-            document.querySelector("#senha_login").value;
-
-
-        // Limpa mensagens anteriores
         mensagemLogin.textContent = "";
         mensagemLogin.className = "";
 
-
-        // ==================================================
-        // VALIDAÇÃO DO E-MAIL
-        // ==================================================
-
-        if (!email.includes("@")) {
-
-            mensagemLogin.textContent =
-                "Informe um e-mail válido.";
-
+        if (!nome) {
+            mensagemLogin.textContent = "Informe seu usuário ou e-mail.";
             mensagemLogin.classList.add("mensagem-erro");
-
             return;
         }
 
+        if (senha.length < 8) {
+            mensagemLogin.textContent = "A senha deve possuir pelo menos 8 caracteres.";
+            mensagemLogin.classList.add("mensagem-erro");
+            return;
+        }
 
-        // ==================================================
-        // SUCESSO
-        // ==================================================
+        try {
+            const resposta = await fetch(`${API_URL}/v1/auth/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    senha: senha
+                })
+            });
 
-        mensagemLogin.textContent = "Login realizado com sucesso.";
-        mensagemLogin.classList.add("mensagem-sucesso");
+            if (!resposta.ok) {
+                throw new Error("Usuário ou senha inválidos.");
+            }
 
-        localStorage.setItem("usuarioLogado", "true");
-        localStorage.setItem("tipoUsuario", "admin");
+            const dados = await resposta.json();
 
-        setTimeout(() => {
-            window.location.href = "home.html";
-        }, 1000);
+            sessionStorage.setItem("usuarioLogado", "true");
+            sessionStorage.setItem("token", dados.token);
+            sessionStorage.setItem("tokenTipo", dados.type);
+            sessionStorage.setItem("usuarioNome", nome);
+            sessionStorage.setItem("usuarioRole", dados.role || "ROLE_PADRAO");
+
+            if (dados.role === "ROLE_ADM") {
+                sessionStorage.setItem("tipoUsuario", "admin");
+            } else {
+                sessionStorage.setItem("tipoUsuario", "usuario");
+            }
+
+            mensagemLogin.textContent = "Login realizado com sucesso.";
+            mensagemLogin.classList.add("mensagem-sucesso");
+
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 800);
+
+        } catch (erro) {
+            mensagemLogin.textContent = erro.message;
+            mensagemLogin.classList.add("mensagem-erro");
+        }
     });
-
 }
 
 
 // ======================================================
-// CADASTRO
+// CADASTRO DE USUÁRIO COMUM
+// ------------------------------------------------------
+// O cadastro público cria apenas usuário comum.
+// Usuários ADM devem ser criados/definidos pela área
+// administrativa ou diretamente pelo banco.
 // ======================================================
 
 if (formCadastro && mensagemCadastro) {
-
-    formCadastro.addEventListener("submit", (event) => {
-
+    formCadastro.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const email =
-            document.querySelector("#email_cadastro").value.trim();
+        const email = document.querySelector("#email_cadastro").value.trim();
+        const senha = document.querySelector("#senha_cadastro").value;
 
-        const senha =
-            document.querySelector("#senha_cadastro").value;
-
-
-        // Limpa mensagens anteriores
         mensagemCadastro.textContent = "";
         mensagemCadastro.className = "";
 
-
-        // ==================================================
-        // VALIDAÇÃO DO E-MAIL
-        // ==================================================
-
         if (!email.includes("@")) {
-
-            mensagemCadastro.textContent =
-                "Informe um e-mail válido.";
-
+            mensagemCadastro.textContent = "Informe um e-mail válido.";
             mensagemCadastro.classList.add("mensagem-erro");
-
             return;
         }
-
-
-        // ==================================================
-        // VALIDAÇÃO DA SENHA
-        // ==================================================
 
         if (senha.length < 8) {
-
-            mensagemCadastro.textContent =
-                "A senha deve possuir pelo menos 8 caracteres.";
-
+            mensagemCadastro.textContent = "A senha deve possuir pelo menos 8 caracteres.";
             mensagemCadastro.classList.add("mensagem-erro");
-
             return;
         }
 
+        try {
+            const resposta = await fetch(`${API_URL}/v1/auth/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: email,
+                    senha: senha
+                })
+            });
 
-        // ==================================================
-        // OBJETO DO USUÁRIO
-        // ==================================================
+            if (!resposta.ok) {
+                throw new Error("Não foi possível realizar o cadastro.");
+            }
 
-        const usuario = {
-            email: email,
-            password: senha
-        };
+            mensagemCadastro.textContent =
+                "Cadastro realizado com sucesso. Agora faça login.";
 
-        console.log("Usuário:", usuario);
+            mensagemCadastro.classList.add("mensagem-sucesso");
 
+            formCadastro.reset();
 
-        // ==================================================
-        // SUCESSO
-        // ==================================================
-
-        mensagemCadastro.textContent =
-            "Cadastro realizado com sucesso.";
-
-        mensagemCadastro.classList.add("mensagem-sucesso");
-
+        } catch (erro) {
+            mensagemCadastro.textContent = erro.message;
+            mensagemCadastro.classList.add("mensagem-erro");
+        }
     });
-
 }

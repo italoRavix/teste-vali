@@ -11,5 +11,7 @@ public class TokenResponseDTO {
 
     private String token;
     private String type;
-    private long expiration;
+    private Long expiration;
+    private String role;
+
 }

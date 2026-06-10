@@ -21,6 +21,7 @@ async function carregarHeader() {
         headerContainer.innerHTML = headerHtml;
 
         inicializarMenuMobile();
+        inicializarBotaoLogin();
 
     } catch (erro) {
         console.error("Erro ao carregar o header:", erro);
@@ -47,6 +48,39 @@ function inicializarMenuMobile() {
     botaoFecharMenu.addEventListener("click", () => {
         document.body.classList.remove("show-mobile-menu");
     });
+}
+
+
+// =========================
+// BOTÃO LOGIN / SAIR
+// =========================
+
+function inicializarBotaoLogin() {
+    const botaoLogin = document.querySelector("#botao-login");
+
+    if (!botaoLogin) {
+        return;
+    }
+
+    const usuarioLogado = sessionStorage.getItem("usuarioLogado");
+
+    if (usuarioLogado === "true") {
+        botaoLogin.textContent = "Sair";
+        botaoLogin.href = "home.html";
+
+        botaoLogin.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            sessionStorage.clear();
+
+            window.location.href = "home.html";
+        });
+
+        return;
+    }
+
+    botaoLogin.textContent = "Login";
+    botaoLogin.href = "login.html";
 }
 
 

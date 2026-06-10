@@ -1,62 +1,96 @@
-const botaoAbrirMenu = document.querySelector("#botao-abrir-menu");
-const botaoFecharMenu = document.querySelector("#botao-fechar-menu");
+// =========================
+// FILTROS
+// =========================
 
-if (botaoAbrirMenu && botaoFecharMenu) {
-    botaoAbrirMenu.addEventListener("click", () => {
-        document.body.classList.add("show-mobile-menu");
-    });
+let categoriaAtiva = null;
 
-    botaoFecharMenu.addEventListener("click", () => {
-        document.body.classList.remove("show-mobile-menu");
-    });
-}
+const botoesFiltro = document.querySelectorAll(".filtro-btn");
 
-document.querySelectorAll(".filtro-btn").forEach(botao => {
+botoesFiltro.forEach((botao) => {
     botao.addEventListener("click", () => {
+        const categoria = botao.dataset.categoria;
 
-        // Se já estiver ativo, desativa
-        if (botao.classList.contains("ativo")) {
-            botao.classList.remove("ativo");
+        if (!categoria) {
             return;
         }
 
-        // Remove o ativo dos outros
-        document.querySelectorAll(".filtro-btn").forEach(btn => {
+        const categoriaFormatada = categoria.toUpperCase();
+
+        if (categoriaAtiva === categoriaFormatada) {
+            categoriaAtiva = null;
+            botao.classList.remove("ativo");
+            carregarLocais();
+            return;
+        }
+
+        botoesFiltro.forEach((btn) => {
             btn.classList.remove("ativo");
         });
 
-        // Ativa o clicado
+        categoriaAtiva = categoriaFormatada;
         botao.classList.add("ativo");
+
+        carregarLocais(categoriaAtiva);
     });
 });
 
+
 // =========================
-// DADOS TEMPORÁRIOS
-// Futuramente virão da API Java
+// ELEMENTOS DA HOME
 // =========================
-const locaisExemplo = [
-    {
-        id: 1,
-        nome: "Nome do local",
-        categoria: "natureza",
-        descricao: "Descrição breve do local. Esse texto será substituído futuramente pelos dados cadastrados pelo administrador.",
-        horario: "Horário de funcionamento: 08:00 às 18:00",
-        imagens: [
-            "assets/img/placeholder-local.jpg",
-            "assets/img/feature-image-trim-trees.jpeg.webp"
-        ]
+
+const locaisContainer = document.querySelector("#locais-container");
+const templateLocalCard = document.querySelector("#template-local-card");
+
+
+// =========================
+// BUSCA DOS LOCAIS NA API
+// =========================
+
+async function carregarLocais(categoria = null) {
+    try {
+        locaisContainer.innerHTML = "";
+
+        const url = categoria
+            ? `${API_URL}/v1/pontoturistico/categoria/${categoria}`
+            : `${API_URL}/v1/pontoturistico/listar`;
+
+        const resposta = await fetch(url);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao carregar locais.");
+        }
+
+        const locais = await resposta.json();
+
+        renderizarLocais(locais);
+    } catch (erro) {
+        console.error("Erro ao buscar locais:", erro);
+
+        locaisContainer.innerHTML = `
+            <p class="mensagem-erro">
+                Não foi possível carregar os locais no momento.
+            </p>
+        `;
     }
-];
+}
 
 
 // =========================
 // RENDERIZAÇÃO DOS LOCAIS
 // =========================
-const locaisContainer = document.querySelector("#locais-container");
-const templateLocalCard = document.querySelector("#template-local-card");
 
 function renderizarLocais(locais) {
     locaisContainer.innerHTML = "";
+
+    if (!locais || locais.length === 0) {
+        locaisContainer.innerHTML = `
+            <p class="mensagem-erro">
+                Nenhum local encontrado.
+            </p>
+        `;
+        return;
+    }
 
     locais.forEach((local) => {
         const card = templateLocalCard.content.cloneNode(true);
@@ -67,16 +101,22 @@ function renderizarLocais(locais) {
         const horario = card.querySelector(".local-horario");
         const indicadores = card.querySelector(".carrossel-indicadores");
 
+        const imagens = local.imagem && local.imagem.length > 0
+            ? local.imagem
+            : ["assets/img/placeholder-local.jpg"];
+
         nome.textContent = local.nome;
         descricao.textContent = local.descricao;
-        horario.textContent = local.horario;
 
-        imagem.src = local.imagens[0];
+        horario.textContent =
+            `Horário de funcionamento: ${formatarHorario(local.horaAbertura)} às ${formatarHorario(local.horaFechamento)}`;
+
+        imagem.src = imagens[0];
         imagem.alt = `Imagem de ${local.nome}`;
 
         indicadores.innerHTML = "";
 
-        local.imagens.forEach((_, index) => {
+        imagens.forEach((_, index) => {
             const indicador = document.createElement("span");
             indicador.classList.add("indicador");
 
@@ -87,7 +127,7 @@ function renderizarLocais(locais) {
             indicadores.appendChild(indicador);
         });
 
-        prepararCarrossel(card, local.imagens, local.nome);
+        prepararCarrossel(card, imagens, local.nome);
 
         locaisContainer.appendChild(card);
     });
@@ -97,6 +137,7 @@ function renderizarLocais(locais) {
 // =========================
 // CARROSSEL DE IMAGENS
 // =========================
+
 function prepararCarrossel(card, imagens, nomeLocal) {
     let imagemAtual = 0;
 
@@ -106,27 +147,31 @@ function prepararCarrossel(card, imagens, nomeLocal) {
     const indicadores = card.querySelectorAll(".indicador");
 
     function atualizarCarrossel() {
-    imagem.classList.add("trocando");
+        imagem.classList.add("trocando");
 
-    setTimeout(() => {
-        imagem.src = imagens[imagemAtual];
-        imagem.alt = `Imagem ${imagemAtual + 1} de ${nomeLocal}`;
+        setTimeout(() => {
+            imagem.src = imagens[imagemAtual];
+            imagem.alt = `Imagem ${imagemAtual + 1} de ${nomeLocal}`;
 
-        indicadores.forEach((indicador, index) => {
-            indicador.classList.toggle("ativo", index === imagemAtual);
-        });
+            indicadores.forEach((indicador, index) => {
+                indicador.classList.toggle("ativo", index === imagemAtual);
+            });
 
-        imagem.classList.remove("trocando");
-    }, 100);
-}
+            imagem.classList.remove("trocando");
+        }, 100);
+    }
 
     botaoAnterior.addEventListener("click", () => {
-        imagemAtual = imagemAtual === 0 ? imagens.length - 1 : imagemAtual - 1;
+        imagemAtual =
+            imagemAtual === 0 ? imagens.length - 1 : imagemAtual - 1;
+
         atualizarCarrossel();
     });
 
     botaoProximo.addEventListener("click", () => {
-        imagemAtual = imagemAtual === imagens.length - 1 ? 0 : imagemAtual + 1;
+        imagemAtual =
+            imagemAtual === imagens.length - 1 ? 0 : imagemAtual + 1;
+
         atualizarCarrossel();
     });
 
@@ -137,32 +182,35 @@ function prepararCarrossel(card, imagens, nomeLocal) {
 }
 
 
+// =========================
+// FORMATAÇÃO
+// =========================
+
+function formatarHorario(horario) {
+    if (!horario) {
+        return "--:--";
+    }
+
+    return horario.slice(0, 5);
+}
+
+
+// =========================
+// ÁREA ADMINISTRATIVA
+// =========================
+
 const secaoAdminHome = document.querySelector("#secao-admin-home");
 
-const usuarioLogado = localStorage.getItem("usuarioLogado");
-const tipoUsuario = localStorage.getItem("tipoUsuario");
+const usuarioLogado = sessionStorage.getItem("usuarioLogado");
+const tipoUsuario = sessionStorage.getItem("tipoUsuario");
 
 if (secaoAdminHome && usuarioLogado === "true" && tipoUsuario === "admin") {
     secaoAdminHome.classList.add("visivel");
 }
 
+
 // =========================
 // INICIALIZAÇÃO
 // =========================
-renderizarLocais(locaisExemplo);
 
-
-// =========================
-// FUTURA INTEGRAÇÃO COM API JAVA
-// =========================
-// Quando a API estiver pronta, você poderá trocar o renderizarLocais(locaisExemplo)
-// por algo assim:
-//
-// fetch("http://localhost:8080/api/locais")
-//     .then((resposta) => resposta.json())
-//     .then((locais) => {
-//         renderizarLocais(locais);
-//     })
-//     .catch((erro) => {
-//         console.error("Erro ao carregar locais:", erro);
-//     });
+carregarLocais();
