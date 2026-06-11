@@ -67,11 +67,11 @@ public List<PontoTuristicoDto> findAll(){
     }
 
 
-@DeleteMapping("/{nome}")
-@ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deteBynome(@PathVariable String nome){
-    pontoTuristicoService.deleteByNome(nome);
-}
+    @DeleteMapping("/nome/{nome}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteByNome(@PathVariable String nome) {
+        pontoTuristicoService.deleteByNome(nome);
+    }
 
 @PatchMapping("/{id}")
 @ResponseStatus(HttpStatus.OK)

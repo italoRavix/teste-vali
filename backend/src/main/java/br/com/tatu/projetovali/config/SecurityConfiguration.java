@@ -51,7 +51,7 @@ public class SecurityConfiguration {
 
                         .requestMatchers(HttpMethod.POST, "/v1/pontoturistico").hasRole("ADM")
                         .requestMatchers(HttpMethod.DELETE, "/v1/pontoturistico/{id}").hasRole("ADM")
-                        .requestMatchers(HttpMethod.DELETE, "/v1/pontoturistico/{nome}").hasRole("ADM")
+                        .requestMatchers(HttpMethod.DELETE, "/v1/pontoturistico/nome/{nome}").hasRole("ADM")
                         .requestMatchers(HttpMethod.PATCH, "/v1/pontoturistico/{id}").hasRole("ADM")
 
                         .requestMatchers(
