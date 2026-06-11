@@ -2,4 +2,4 @@
 // CONFIGURAÇÃO DA API
 // =========================
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://vali-n2mj.onrender.com";
