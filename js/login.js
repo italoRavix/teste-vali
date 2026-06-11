@@ -100,6 +100,7 @@ if (formCadastro && mensagemCadastro) {
 
         const email = document.querySelector("#email_cadastro").value.trim();
         const senha = document.querySelector("#senha_cadastro").value;
+        const confirmarSenha = document.querySelector("#confirmar_senha_cadastro").value;
 
         mensagemCadastro.textContent = "";
         mensagemCadastro.className = "";
@@ -112,6 +113,12 @@ if (formCadastro && mensagemCadastro) {
 
         if (senha.length < 8) {
             mensagemCadastro.textContent = "A senha deve possuir pelo menos 8 caracteres.";
+            mensagemCadastro.classList.add("mensagem-erro");
+            return;
+        }
+
+        if (senha !== confirmarSenha) {
+            mensagemCadastro.textContent = "As senhas não conferem.";
             mensagemCadastro.classList.add("mensagem-erro");
             return;
         }
@@ -145,3 +152,33 @@ if (formCadastro && mensagemCadastro) {
         }
     });
 }
+
+
+document.querySelectorAll(".google-login-btn").forEach((botao) => {
+    botao.addEventListener("click", () => {
+
+        const modal = document.createElement("div");
+
+        modal.className = "modal-google";
+
+        modal.innerHTML = `
+            <div class="modal-google-conteudo">
+
+                <h3>Em breve 🚀</h3>
+
+                <button id="fechar-modal-google">
+                    Entendi
+                </button>
+
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        document
+            .querySelector("#fechar-modal-google")
+            .addEventListener("click", () => {
+                modal.remove();
+            });
+    });
+});
